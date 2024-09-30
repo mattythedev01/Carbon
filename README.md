@@ -18,6 +18,6 @@ Welcome to the **Advanced Moderation Bot**! 🛡️ This bot is designed to help
 To get started, clone the repository and install the necessary packages:
 
 ```bash
-git clone https://github.com/yourusername/advanced-moderation-bot.git
-cd advanced-moderation-bot
+git clone https://github.com/mattythedev01/Carbon.git
+cd Carbon
 npm install
