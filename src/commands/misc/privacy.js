@@ -7,29 +7,43 @@ module.exports = {
 
   run: async (client, interaction) => {
     const embed = new EmbedBuilder()
-      .setColor("#0099ff")
+      .setColor("#7289DA")
       .setTitle("🚫 Privacy Policy")
       .setDescription(
-        "👍 We respect your privacy. Here's what you need to know:"
+        "> We respect your privacy and are committed to protecting your data. Here's what you need to know:"
       )
       .addFields(
-        { name: "🔍 Data", value: "🚫 We only collect what's necessary." },
         {
-          name: "💻 Usage",
-          value: "🔄 We use your data to improve our service.",
+          name: "🔍 Data Collection",
+          value:
+            "> We only collect the information that is essential for our services.",
         },
-        { name: "🔒 Protection", value: "🔑 We keep your data safe." },
-        { name: "🚫 Sharing", value: "🚫 We don't share your data." },
+        {
+          name: "💻 Data Usage",
+          value:
+            "> Your data is used to enhance and personalize your experience with us.",
+        },
+        {
+          name: "🔒 Data Protection",
+          value:
+            "> We prioritize the security and confidentiality of your data.",
+        },
+        {
+          name: "🚫 Data Sharing",
+          value: "> We do not share your data with any third parties.",
+        },
         {
           name: "👥 Your Rights",
-          value: "🚫 You can ask us to delete your data.",
+          value:
+            "> You have the right to request the deletion of your data at any time.",
         },
         {
-          name: "🔄 Updates",
-          value: "🔄 This policy may change. Check back often.",
+          name: "🔄 Policy Updates",
+          value:
+            "> This policy is subject to periodic updates. Please check back regularly for changes.",
         }
       )
-      .setFooter({ text: `🔄 Updated: ${new Date().toLocaleDateString()}` });
+      .setFooter({ text: `Last Updated: ${new Date().toLocaleDateString()}` });
 
     await interaction.reply({ embeds: [embed], ephemeral: true });
   },
