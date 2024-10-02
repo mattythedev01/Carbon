@@ -18,7 +18,7 @@ module.exports = async (client) => {
               Type: ActivityType.Watching,
             },
           ],
-          Status: "online",
+          Status: "dnd",
         },
       ],
     });
