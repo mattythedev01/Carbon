@@ -15,10 +15,10 @@ module.exports = async (client) => {
           Activity: [
             {
               Name: `in ${client.guilds.cache.size} servers!`,
-              Type: ActivityType.Watching,
+              Type: ActivityType.Playing,
             },
           ],
-          Status: "dnd",
+          Status: "online",
         },
       ],
     });
