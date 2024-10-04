@@ -98,7 +98,7 @@ module.exports = {
             );
           setTimeout(() => {
             interaction.editReply({ embeds: [rEmbed], ephemeral: true });
-          }, 5000);
+          }, 4000);
 
           let i;
           for (i = 0; i < suspiciousUsers.ids.length; i++) {
