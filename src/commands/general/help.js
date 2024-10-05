@@ -19,12 +19,16 @@ module.exports = {
         tickets: "<:Tickets:1290169410266337360>",
         utility: "<:Utility:1290169570895724635>",
         general: "💘",
+        fun: "😊",
+        mentalhealth: "😭",
         misc: "📦",
       };
 
       const frontPageEmbed = new EmbedBuilder()
         .setTitle("🚀🌌 Welcome to the Future of Command Help 🌌🚀")
-        .setDescription("`- Use the buttons to navigate through the commands!`")
+        .setDescription(
+          "`- Use the buttons to navigate through the command categories!`"
+        )
         .setColor("#42f5e3")
         .setFooter({ text: `${footerData.footerText} | 🕒` })
         .setTimestamp();

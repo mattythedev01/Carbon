@@ -11,11 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.20.0",
+    "axios": "^1.7.7",
     "canvas": "^2.11.2",
     "chartjs-node-canvas": "^4.1.6",
     "colors": "^1.4.0",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "generate-password": "^1.7.1",
+    "https": "^1.0.0",
     "math.js": "^1.1.46",
     "mathjs": "^13.2.0",
     "moment": "^2.30.1",
@@ -23,6 +27,7 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.3",
     "randomized-string": "^2.0.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "weather-js": "^2.0.0"
   }
 }
