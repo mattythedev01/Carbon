@@ -31,7 +31,7 @@ module.exports = async (client) => {
 
     client.user.setPresence({
       activities: [
-        { name: presence.Activity[0].Name, type: presence.Activity[0].TYpe },
+        { name: presence.Activity[0].Name, type: presence.Activity[0].Type },
       ],
       status: presence.Status,
     });
