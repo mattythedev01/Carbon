@@ -25,6 +25,7 @@ module.exports = {
         notes: "📚",
         remind: "🌏",
         suggestions: "🤔",
+        nsfw: "🔞",
       };
 
       const frontPageEmbed = new EmbedBuilder()
