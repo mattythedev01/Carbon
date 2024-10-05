@@ -22,6 +22,9 @@ module.exports = {
         fun: "😊",
         mentalhealth: "😭",
         misc: "📦",
+        notes: "📚",
+        remind: "🌏",
+        suggestions: "🤔",
       };
 
       const frontPageEmbed = new EmbedBuilder()
