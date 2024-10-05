@@ -11,10 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.20.0",
+    "@iamtraction/google-translate": "^2.0.1",
     "axios": "^1.7.7",
     "canvas": "^2.11.2",
     "chartjs-node-canvas": "^4.1.6",
     "colors": "^1.4.0",
+    "discord-gamecord": "^4.4.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
     "fs": "^0.0.1-security",
