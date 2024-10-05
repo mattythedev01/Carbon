@@ -20,6 +20,7 @@
     "fs": "^0.0.1-security",
     "generate-password": "^1.7.1",
     "got": "^14.4.2",
+    "hmfull": "^2.4.3",
     "https": "^1.0.0",
     "mal-scraper": "^2.13.2",
     "math.js": "^1.1.46",
