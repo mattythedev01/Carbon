@@ -1,24 +1,25 @@
-const {
-  SlashCommandBuilder,
-  PermissionFlagsBits,
-  ChannelType,
-  EmbedBuilder,
-} = require("discord.js");
+const { EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const moderationSchema = require("../../schemas/moderation");
 const suggestSchema = require("../../schemas/suggestSchema");
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName("check-setup")
-    .setDescription("Check the moderation system setup")
-    .toJSON(),
+  name: "check-setup",
+  description: "Check the moderation system setup",
   userPermissions: [PermissionFlagsBits.Administrator],
   botPermissions: [],
 
-  run: async (client, interaction) => {
-    const { guildId, guild } = interaction;
+  run: async (client, message, args) => {
+    const { guildId, guild } = message;
     let dataGD = await moderationSchema.findOne({ GuildID: guildId });
     let dataSuggest = await suggestSchema.findOne({ GuildID: guildId });
+
+    if (!dataGD)
+      return message.reply(
+        "Please setup the moderation system before using this command."
+      );
+
+    const prefix = dataGD.GuildPrefix;
+    if (!message.content.startsWith(prefix)) return;
 
     const setupEmbed = new EmbedBuilder()
       .setColor("#FFD700") // A more vibrant yellow color
@@ -78,6 +79,6 @@ module.exports = {
       });
     }
 
-    interaction.reply({ embeds: [setupEmbed], ephemeral: true });
+    message.reply({ embeds: [setupEmbed] });
   },
 };
