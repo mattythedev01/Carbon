@@ -19,7 +19,7 @@ module.exports = {
         .setRequired(true)
     ),
   userPermissions: [],
-  botPermissions: [PermissionFlagsBits.ManageNicknames],
+  botPermissions: [],
   run: async (client, interaction) => {
     const user = interaction.user;
     const reason =
@@ -34,9 +34,6 @@ module.exports = {
     await afkEntry.save();
 
     await interaction.reply(`You have been set as AFK. Reason: ${reason}`);
-
-    // Change the user's nickname to "Afk <reason>"
-    await user.setNickname(`Afk ${reason}`);
 
     const messageListener = async (message) => {
       if (message.author.bot || !message.mentions.users.has(user.id)) return;
