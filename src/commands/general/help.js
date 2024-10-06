@@ -28,8 +28,6 @@ module.exports = {
         nsfw: "🔞",
         remind: "🌏",
         suggestions: "🤔",
-        tickets: "<:Tickets:1290169410266337360>",
-        utility: "<:Utility:1290169570895724635>",
       };
 
       const frontPageEmbed = new EmbedBuilder()
