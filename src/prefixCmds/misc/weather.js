@@ -17,7 +17,7 @@ module.exports = {
       return message.channel.send("Invalid command usage.");
     }
 
-    const location = args[1];
+    const location = args.slice(1).join(" ");
     weather.find({ search: location, degreeType: "F" }, function (err, result) {
       if (err) {
         console.log(err);
