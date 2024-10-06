@@ -33,11 +33,12 @@ module.exports = {
             )
             .setRequired(true)
         )
-        .addStringOption((o) =>
-          o
-            .setName("guild_prefix")
-            .setDescription("Set the guild prefix for the bot.")
-            .setRequired(true)
+        .addStringOption(
+          (o) =>
+            o
+              .setName("guild_prefix")
+              .setDescription("Set the guild prefix for the bot.")
+              .setRequired(false) // Made the guild prefix option optional
         )
     )
     .addSubcommand((s) =>
@@ -63,7 +64,7 @@ module.exports = {
       case "configure": {
         const multiGuilded = options.getBoolean("multi_guilded");
         const loggingChannel = options.getChannel("logging_channel");
-        const guildPrefix = options.getString("guild_prefix");
+        const guildPrefix = options.getString("guild_prefix") || "!"; // Set default guild prefix if not provided
 
         let dataGD = await moderationSchema.findOne({ GuildID: guildId });
         if (!dataGD) {
