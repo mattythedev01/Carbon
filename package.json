@@ -16,6 +16,8 @@
     "canvas": "^2.11.2",
     "chartjs-node-canvas": "^4.1.6",
     "colors": "^1.4.0",
+    "dbd-soft-ui": "^1.7.40-beta.1",
+    "discord-dashboard": "^2.3.62",
     "discord-gamecord": "^4.4.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
