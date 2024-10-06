@@ -33,6 +33,12 @@ module.exports = {
             )
             .setRequired(true)
         )
+        .addStringOption((o) =>
+          o
+            .setName("guild_prefix")
+            .setDescription("Set the guild prefix for the bot.")
+            .setRequired(true)
+        )
     )
     .addSubcommand((s) =>
       s
@@ -57,6 +63,7 @@ module.exports = {
       case "configure": {
         const multiGuilded = options.getBoolean("multi_guilded");
         const loggingChannel = options.getChannel("logging_channel");
+        const guildPrefix = options.getString("guild_prefix");
 
         let dataGD = await moderationSchema.findOne({ GuildID: guildId });
         if (!dataGD) {
@@ -76,6 +83,7 @@ module.exports = {
             GuildID: guildId,
             MultiGuilded: multiGuilded,
             LogChannelID: loggingChannel.id,
+            GuildPrefix: guildPrefix,
           });
           await dataGD.save();
 
@@ -93,6 +101,11 @@ module.exports = {
               {
                 name: "Logging Channel",
                 value: `${loggingChannel}`,
+                inline: true,
+              },
+              {
+                name: "Guild Prefix",
+                value: `${guildPrefix}`,
                 inline: true,
               }
             );
@@ -149,6 +162,7 @@ module.exports = {
             {
               MultiGuilded: multiGuilded,
               LogChannelID: loggingChannel.id,
+              GuildPrefix: guildPrefix,
             }
           );
 
@@ -166,6 +180,11 @@ module.exports = {
               {
                 name: "Logging Channel",
                 value: `${loggingChannel}`,
+                inline: true,
+              },
+              {
+                name: "Guild Prefix",
+                value: `\`${guildPrefix}\``,
                 inline: true,
               }
             );
