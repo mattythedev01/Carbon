@@ -1,6 +1,7 @@
 require("dotenv/config");
 
 const { Client, GatewayIntentBits } = require("discord.js");
+const moderationSchema = require("./schemas/moderation");
 
 const SoftUI = require("dbd-soft-ui");
 const config = require("./testing.json");
@@ -99,7 +100,66 @@ const Handler = new DBD.Handler();
       },
       commands: [],
     }),
-    settings: [],
+    settings: [
+      {
+        categoryId: "input",
+        categoryName: "Guild Prefix",
+        categoryImageURL: "URL To image",
+        categoryDescription: "Setup your guilds prefix.",
+        toggleable: true,
+        toggled: false, // Added to set the category as toggled off by default
+        getActualSet: async ({ guild }) => {
+          const data = await moderationSchema.findOne({ GuildID: guild.id });
+          return data ? data.GuildPrefix : "";
+        },
+        setNew: async ({ guild, newData }) => {
+          if (newData) {
+            await moderationSchema.updateOne(
+              { GuildID: guild.id },
+              { $set: { GuildPrefix: newData } },
+              { upsert: true }
+            );
+          } else {
+            await moderationSchema.updateOne(
+              { GuildID: guild.id },
+              { $set: { GuildPrefix: "" } },
+              { upsert: true }
+            );
+          }
+          return;
+        },
+        categoryOptionsList: [
+          {
+            optionId: "prefix",
+            optionName: "Prefix",
+            optionDescription: "Set bot prefix.",
+            optionType: DBD.formTypes.input("Prefix", 1, 4, false, false),
+            getActualSet: async ({ guild }) => {
+              const data = await moderationSchema.findOne({
+                GuildID: guild.id,
+              });
+              return data ? data.GuildPrefix : "";
+            },
+            setNew: async ({ guild, newData }) => {
+              if (newData) {
+                await moderationSchema.updateOne(
+                  { GuildID: guild.id },
+                  { $set: { GuildPrefix: newData } },
+                  { upsert: true }
+                );
+              } else {
+                await moderationSchema.updateOne(
+                  { GuildID: guild.id },
+                  { $set: { GuildPrefix: "" } },
+                  { upsert: true }
+                );
+              }
+              return;
+            },
+          },
+        ],
+      },
+    ],
   });
   Dashboard.init();
 })();

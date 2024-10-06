@@ -6,7 +6,7 @@ const moderationSchema = require("../schemas/moderation");
 module.exports = async (client) => {
   const eventFolders = getAllFiles(path.join(__dirname, "..", "events"), true);
   const prefixCommands = getAllFiles(
-    path.join(__dirname, "..", "prefix_commands"),
+    path.join(__dirname, "..", "prefixCmds"),
     true
   );
 
