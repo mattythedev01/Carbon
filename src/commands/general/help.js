@@ -10,22 +10,26 @@ module.exports = {
 
   run: async (client, interaction) => {
     try {
-      const commandFolders = fs.readdirSync("./src/commands");
+      const commandFolders = fs
+        .readdirSync("./src/commands")
+        .sort()
+        .filter((folder) => folder !== "developers");
       const helpEmbeds = [];
 
       const folderEmojis = {
         admin: "<:Admin:1290168797449162774>",
-        moderation: "<:Moderator:1290169208226709568>",
-        tickets: "<:Tickets:1290169410266337360>",
-        utility: "<:Utility:1290169570895724635>",
-        general: "💘",
         fun: "😊",
+        general: "💘",
+        giveaways: "🎉",
         mentalhealth: "😭",
         misc: "📦",
+        moderation: "<:Moderator:1290169208226709568>",
         notes: "📚",
+        nsfw: "🔞",
         remind: "🌏",
         suggestions: "🤔",
-        nsfw: "🔞",
+        tickets: "<:Tickets:1290169410266337360>",
+        utility: "<:Utility:1290169570895724635>",
       };
 
       const frontPageEmbed = new EmbedBuilder()
